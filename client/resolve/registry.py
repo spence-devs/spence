@@ -1,5 +1,3 @@
-"""Resolver registry"""
-
 from typing import Optional
 from client.resolve.base import Resolver
 from client.errors import UnsupportedPlatform
