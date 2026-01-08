@@ -1,5 +1,10 @@
 [build-system]
-requires = ["setuptools>=65.0", "wheel", "cmake>=3.20"]
+requires = [
+    "setuptools>=68.0",
+    "wheel",
+    "cmake>=3.20",
+    "pybind11>=2.11.0"
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,9 +12,9 @@ name = "spence"
 version = "0.1.0"
 description = "Music infrastructure for Discord bots"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 authors = [
-    {name = "spence-devs", email = "hello@waris.wtf"}
+    { name = "spence-devs", email = "hello@waris.wtf" }
 ]
 requires-python = ">=3.11"
 classifiers = [
@@ -21,23 +26,23 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: C++",
     "Topic :: Multimedia :: Sound/Audio",
-    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries"
 ]
 keywords = ["discord", "music", "audio", "opus", "streaming", "lavalink"]
 dependencies = [
     "aiohttp>=3.9.0",
-    "orjson>=3.9.0",
+    "orjson>=3.9.0"
 ]
 
 [project.optional-dependencies]
 discord = [
-    "discord.py>=2.3.0",
+    "discord.py>=2.3.0"
 ]
 dev = [
     "pytest>=7.4.0",
     "pytest-asyncio>=0.21.0",
     "black>=23.0.0",
-    "mypy>=1.5.0",
+    "mypy>=1.5.0"
 ]
 
 [project.urls]
@@ -47,10 +52,10 @@ Repository = "https://github.com/spence-devs/spence"
 Issues = "https://github.com/spence-devs/spence/issues"
 
 [tool.setuptools]
-packages = ["client"]
+packages = ["spence"]
 
 [tool.setuptools.package-data]
-client = ["py.typed", "*.pyi"]
+spence = ["py.typed", "*.pyi"]
 
 [tool.black]
 line-length = 100
