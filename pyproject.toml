@@ -12,7 +12,7 @@ name = "spence"
 version = "0.1.0"
 description = "Music infrastructure for Discord bots"
 readme = "README.md"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
     { name = "spence-devs", email = "hello@waris.wtf" }
 ]
@@ -52,10 +52,10 @@ Repository = "https://github.com/spence-devs/spence"
 Issues = "https://github.com/spence-devs/spence/issues"
 
 [tool.setuptools]
-packages = ["spence"]
+packages = ["client", "client.api", "client.bridge", "client.discord", "client.resolve", "client.resolve.applemusic", "client.resolve.common", "client.resolve.deezer", "client.resolve.soundcloud", "client.resolve.spotify", "client.resolve.youtube", "client.utils"]
 
 [tool.setuptools.package-data]
-spence = ["py.typed", "*.pyi"]
+client = ["py.typed", "*.pyi"]
 
 [tool.black]
 line-length = 100
