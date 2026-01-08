@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-"""Build script for spence native module"""
 
 import sys
 import subprocess
