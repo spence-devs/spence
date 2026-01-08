@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+
+recursive-include native *.h *.cpp *.c CMakeLists.txt
+recursive-include bindings *.h *.cpp CMakeLists.txt
+recursive-include native/thirdparty *
+
+exclude native/build
+exclude bindings/build
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
