@@ -21,13 +21,13 @@ A package that provides a deterministic, high-performance music infrastructure f
 
 ## Features
 
-✅ Deterministic audio playback with frame-accurate timing  
-✅ Native C++ audio engine with Python bindings  
-✅ Multi-platform music resolution (YouTube, SoundCloud, Spotify, Apple Music, Deezer)  
-✅ Zero runtime ffmpeg dependency  
-✅ Opus-native pipeline with WebM demuxing  
-✅ Designed for large-scale sharded Discord bots  
-✅ Replay-safe and crash-resilient execution model  
+- [x] Deterministic audio playback with frame-accurate timing  
+- [x] Native C++ audio engine with Python bindings  
+- [x] Multi-platform music resolution (YouTube, SoundCloud, Spotify, Apple Music, Deezer)  
+- [x] Zero runtime ffmpeg dependency  
+- [x] Opus-native pipeline with WebM demuxing  
+- [x] Designed for large-scale sharded Discord bots  
+- [x] Replay-safe and crash-resilient execution model  
 
 ---
 
