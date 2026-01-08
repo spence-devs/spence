@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 
 class RateLimiter:
-    """Per-domain token bucket rate limiter"""
+    """Per domain token bucket rate limiter"""
     
     def __init__(self, requests_per_second: float = 2.0):
         self._rate = requests_per_second
