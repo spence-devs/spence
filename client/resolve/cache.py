@@ -5,7 +5,7 @@ from client.api.track import Track
 
 
 class ResolverCache:
-    """Thread-safe LRU cache with TTL"""
+    """Thread safe LRU cache with TTL"""
     
     def __init__(self, max_size: int = 10000, ttl: int = 21600):
         self._cache: OrderedDict[str, tuple[Track, float]] = OrderedDict()
