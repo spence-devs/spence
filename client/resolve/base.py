@@ -1,5 +1,3 @@
-"""Base resolver interface"""
-
 from abc import ABC, abstractmethod
 from typing import Optional
 from client.api.track import Track
