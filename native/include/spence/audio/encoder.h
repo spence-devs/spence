@@ -25,7 +25,8 @@ public:
         bool fec = true;
     };
     
-    explicit OpusEncoder(const Config& config = Config{});
+    OpusEncoder();
+    explicit OpusEncoder(const Config& config);
     ~OpusEncoder() override;
     
     bool encode_frame(const AudioFrame& frame, std::vector<uint8_t>& output) override;
