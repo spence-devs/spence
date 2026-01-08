@@ -4,7 +4,7 @@ A package that provides a deterministic, high-performance music infrastructure f
 > Native audio engine for large-scale Discord music bots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/spence-devs/assets/main/spence.png">
+  <img src="https://i.postimg.cc/hvq26JFW/spence.png">
 </p>
 
 ---
