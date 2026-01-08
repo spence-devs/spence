@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel", "cmake>=3.20"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spence"
+version = "0.1.0"
+description = "Music infrastructure for Discord bots"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "spence-devs", email = "hello@waris.wtf"}
+]
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: C++",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Software Development :: Libraries",
+]
+keywords = ["discord", "music", "audio", "opus", "streaming", "lavalink"]
+dependencies = [
+    "aiohttp>=3.9.0",
+    "orjson>=3.9.0",
+]
+
+[project.optional-dependencies]
+discord = [
+    "discord.py>=2.3.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "mypy>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/spence-devs/spence"
+Documentation = "https://spence.audio/docs"
+Repository = "https://github.com/spence-devs/spence"
+Issues = "https://github.com/spence-devs/spence/issues"
+
+[tool.setuptools]
+packages = ["client"]
+
+[tool.setuptools.package-data]
+client = ["py.typed", "*.pyi"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
