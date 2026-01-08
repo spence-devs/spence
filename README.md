@@ -1,11 +1,10 @@
+<img align="right" src="https://i.postimg.cc/hvq26JFW/spence.png" width=200 alt="Spence">
+
 # spence
 A package that provides a deterministic, high-performance music infrastructure for Discord bots and streaming applications.
 
 > Native audio engine for large-scale Discord music bots
-
-<p align="center">
-  <img src="https://i.postimg.cc/hvq26JFW/spence.png">
-</p>
+> 
 
 ---
 
