@@ -3,6 +3,7 @@ from client.api.node import Node
 from client.api.player import Player
 from client.api.track import Track
 from client.api.queue import Queue
+from client.api.filters import FilterConfig, EqualizerBand, Filters
 from client.errors import (
     SpenceError,
     ResolverError,
@@ -19,6 +20,9 @@ __all__ = [
     "Player",
     "Track",
     "Queue",
+    "FilterConfig",
+    "EqualizerBand",
+    "Filters",
     "SpenceError",
     "ResolverError",
     "UnsupportedPlatform",
