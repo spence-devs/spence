@@ -35,7 +35,8 @@ dependencies = [
 
 [project.optional-dependencies]
 discord = [
-    "discord.py>=2.3.0"
+    "discord.py>=2.6.4",
+    "PyNaCl>=1.6.2",
 ]
 dev = [
     "pytest>=7.4.0",
