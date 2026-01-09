@@ -7,7 +7,8 @@ namespace spence {
 Player::Player(Engine* engine, uint64_t id)
     : engine_(engine)
     , id_(id)
-    , output_buffer_(50) {  // 1 second buffer
+    , output_buffer_(50)
+    , filter_chain_(std::make_unique<audio::FilterChain>()) {
 }
 
 Player::~Player() {
@@ -94,6 +95,10 @@ void Player::set_volume(float volume) {
     volume_ = std::clamp(volume, 0.0f, 2.0f);
 }
 
+void Player::set_filters(const audio::FilterConfig& config) {
+    filter_chain_->set_config(config, SAMPLE_RATE);
+}
+
 bool Player::read_frame(uint8_t* buffer, size_t buffer_size, size_t& bytes_written) {
     auto packet = output_buffer_.try_pop();
     if (!packet) {
@@ -155,6 +160,9 @@ void Player::process_frame() {
     if (vol != 1.0f) {
         resampled_frame.apply_volume(vol);
     }
+    
+    // Apply filters
+    filter_chain_->process(resampled_frame);
     
     // Encode
     std::vector<uint8_t> opus_packet;
