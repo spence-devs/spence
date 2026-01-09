@@ -20,6 +20,7 @@ set(SPENCE_SOURCES
     src/audio/decoder.cpp
     src/audio/encoder.cpp
     src/audio/resampler.cpp
+    src/audio/filter.cpp
     src/stream/opusstream.cpp
     src/stream/rtppacket.cpp
     src/extract/youtube.cpp
