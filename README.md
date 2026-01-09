@@ -49,7 +49,7 @@ A package that provides a deterministic, high-performance music infrastructure f
 
 - Python 3.11+
 - CMake 3.20+
-- C++23 compatible compiler  
+- C++20 compatible compiler  
   - GCC 12+
   - Clang 15+
   - MSVC 2022+
