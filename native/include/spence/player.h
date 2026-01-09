@@ -44,6 +44,7 @@ public:
     bool stop();
     bool seek(uint64_t position_ms);
     void set_volume(float volume);
+    void set_filters(const audio::FilterConfig& config);
     
     bool read_frame(uint8_t* buffer, size_t buffer_size, size_t& bytes_written);
     
@@ -69,6 +70,7 @@ private:
     std::unique_ptr<audio::Decoder> decoder_;
     std::unique_ptr<audio::Resampler> resampler_;
     std::unique_ptr<audio::Encoder> encoder_;
+    std::unique_ptr<audio::FilterChain> filter_chain_;
     
     RingBuffer<std::vector<uint8_t>> output_buffer_;
     
