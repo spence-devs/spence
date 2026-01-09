@@ -61,6 +61,11 @@ class Player:
         """Set volume (0.0 to 2.0)"""
         self._native.set_volume(max(0.0, min(2.0, volume)))
     
+    def set_filters(self, filters: FilterConfig) -> None:
+        """Apply audio filters"""
+        native_config = filters.to_native()
+        self._native.set_filters(native_config)
+    
     def read_frame(self) -> Optional[bytes]:
         """Read next 20ms Opus frame"""
         frame = self._native.read_frame()
@@ -95,4 +100,4 @@ class Player:
             decode_errors=m.decode_errors,
             buffer_underruns=m.buffer_underruns,
             avg_frame_time_us=m.avg_frame_time_us,
-        )
+    )
