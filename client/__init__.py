@@ -14,6 +14,13 @@ from client.errors import (
     DecodeError,
 )
 
+# Import Discord integration if discord.py is available
+try:
+    from client.discord.voice import VoiceClient
+    __all_with_discord__ = ["VoiceClient"]
+except ImportError:
+    __all_with_discord__ = []
+
 __all__ = [
     "__version__",
     "Node",
@@ -30,4 +37,4 @@ __all__ = [
     "PlayerError",
     "InvalidState",
     "DecodeError",
-]
+] + __all_with_discord__
