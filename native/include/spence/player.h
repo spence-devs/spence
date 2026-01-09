@@ -4,6 +4,7 @@
 #include "spence/audio/decoder.h"
 #include "spence/audio/encoder.h"
 #include "spence/audio/resampler.h"
+#include "spence/audio/filter.h"
 #include "spence/stream/ringbuffer.h"
 #include <cstdint>
 #include <memory>
