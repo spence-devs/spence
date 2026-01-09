@@ -1,8 +1,7 @@
-"""Player control"""
-
 from typing import Optional
 from dataclasses import dataclass
 from client.api.track import Track
+from client.api.filters import FilterConfig
 from client.bridge.core import NativePlayer, NativeTrackInfo, PlayerState
 from client.errors import InvalidState
 
@@ -96,4 +95,4 @@ class Player:
             decode_errors=m.decode_errors,
             buffer_underruns=m.buffer_underruns,
             avg_frame_time_us=m.avg_frame_time_us,
-      )
+        )
