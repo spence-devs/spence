@@ -27,6 +27,8 @@ A package that provides a deterministic, high-performance music infrastructure f
 - [x] Opus-native pipeline with WebM demuxing  
 - [x] Designed for large-scale sharded Discord bots  
 - [x] Replay-safe and crash-resilient execution model  
+- [x] Built-in Discord voice transport with RTP handling
+- [x] Real-time audio filters (equalizer, timescale, effects)
 
 ---
 
@@ -37,7 +39,7 @@ A package that provides a deterministic, high-performance music infrastructure f
 
 > Audio processing **never runs in Python**. Python is only used for orchestration and integration.
 
-> Discord voice transport and RTP handling are expected to be implemented by the consumer.
+> Discord voice transport and RTP handling are **included** and production-ready.
 
 > This project prioritizes correctness and determinism over convenience.
 
@@ -47,7 +49,7 @@ A package that provides a deterministic, high-performance music infrastructure f
 
 - Python 3.11+
 - CMake 3.20+
-- C++20 compatible compiler  
+- C++23 compatible compiler  
   - GCC 12+
   - Clang 15+
   - MSVC 2022+
@@ -59,7 +61,7 @@ A package that provides a deterministic, high-performance music infrastructure f
 
 ```bash
 pip install spence
-````
+```
 
 Build from source:
 
@@ -81,14 +83,14 @@ pip install -e .
 
 ## Example
 
-> Running spence requires manual integration with your Discord voice system.
+> spence includes complete Discord voice integration.
 > Below is a minimal example demonstrating the core audio flow.
 
 ### Example usage
 
 ```python
 import spence
-import asyncio
+import discord
 
 node = spence.Node()
 
@@ -98,10 +100,10 @@ player = node.create_player()
 player.load(track)
 player.play()
 
-while player.is_playing():
-    frame = player.read_frame()  # 20ms Opus packet
-    # send frame to Discord voice gateway
-    await asyncio.sleep(0.02)
+# Built-in Discord integration
+discord_voice = await channel.connect()
+vc = spence.VoiceClient(discord_voice, player)
+await vc.connect()  # RTP packets sent automatically
 ```
 
 ---
@@ -116,9 +118,9 @@ while player.is_playing():
 * Debugging voice desync issues
 
 ```python
-player.on("frame_sent", lambda frame: ...)
-player.on("track_end", lambda track: ...)
-player.on("underrun", lambda state: ...)
+metrics = player.metrics()
+print(f"Frames generated: {metrics.frames_generated}")
+print(f"Avg frame time: {metrics.avg_frame_time_us}µs")
 ```
 
 > WARNING:
@@ -141,8 +143,8 @@ player.on("underrun", lambda state: ...)
 
 ## Versioning
 
-> v0.1.0 — Active development
-> v1.1.0 — First stable release (planned)
+> v0.1.0 – Active development
+> v1.0.0 – First stable release (planned)
 
 ---
 
